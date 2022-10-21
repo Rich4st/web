@@ -1,42 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import BgPolygonFloating from '~/bg-polygon-floating.vue';
-import BtnBase from '~/base/polygon-base.vue';
-
-interface Props {
-  label?: string;
-}
-const props = withDefaults(defineProps<Props>(), {
-  label: '',
-});
-
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void;
-}>();
+import BgPolygonFloating from '~/bg-polygon-floating.vue'
+import BtnBase from '~/base/btn-base.vue'
+import PolygonBase from '~/base/polygon-base.vue'
 </script>
 
 <template>
-  <BgPolygonFloating class="absolute inset-0">
-    <polygon-base
-      class="bg-polygon-lt"
-      size="50rem"
-      fill="fence"
-      shape="square"
-      rotate="30deg"
-      opacity="0.1"
-      color="#e09c48"
-    />
+  <BgPolygonFloating class="absolute inset-0" />
+  <div class="absolute inset-0 flex flex-col flex-center gap-20">
+    <BtnBase class="menu-btn" label="建立房间" label-hover-color="#ff9a1f" stroke-color="#856639" stroke-hover-color="white">
+      <template #default="{ state }">
+        <div class="btn-content absolute inset-0" :class="{ hover: state.hover }">
+          <PolygonBase class="absolute btn-polygon-lt" size="14rem" shape="round" fill="spot" />
+          <q-icon name="sports_esports" color="white" size="8rem" class=" absolute game-icon" />
+        </div>
+      </template>
+    </BtnBase>
 
-    <polygon-base
-      class="bg-polygon-rb"
-      size="80rem"
-      fill="spot"
-      shape="round"
-      rotate="30deg"
-      opacity="0.1"
-      color="#f0a53c"
-    />
-  </BgPolygonFloating>
+    <BtnBase class="menu-btn" label="加入房间" label-hover-color="#ff9a1f" stroke-color="#856639" stroke-hover-color="white">
+      <template #default="{ state }">
+        <div class="btn-content absolute inset-0" :class="{ hover: state.hover }">
+          <PolygonBase class="absolute btn-polygon-lt" size="14rem" rotate="144deg" shape="pentagon" fill="fence" />
+          <q-icon name="person_add" color="white" size="7rem" class=" absolute join-icon" />
+        </div>
+      </template>
+    </BtnBase>
+  </div>
 </template>
 
 <style scoped lang="scss">
