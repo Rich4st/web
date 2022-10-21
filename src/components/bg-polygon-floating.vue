@@ -2,12 +2,12 @@
 import { onBeforeUnmount, ref, watch } from 'vue';
 import { colors } from 'quasar';
 import { computed } from '@vue/reactivity';
-import PolygonBase from './polygon-base.vue';
+import PolygonBase from './base/polygon-base.vue';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { random, sample } from 'lodash-es';
 import { nanoid } from 'nanoid';
 import { promiseTimeout } from '@vueuse/core';
-import { ShapeType, FillType, PolygonParams } from '../types';
+import { ShapeType, FillType, PolygonParams } from 'types';
 
 const { lighten, textToRgb, rgbToHsv, hsvToRgb, rgbToHex } = colors;
 
@@ -16,7 +16,7 @@ interface Props {
   /* 初始数量，画面出现时内部初始方块数量 */
   initialQuantity?: number;
   /* 色块最大数量，超过该数量时候暂停产生方块 */
-  maxQuantity?: number;
+  maxQuantity?: number; 
   /* 产生方块间距，越短生成速度越快 */
   generateInterval?: number;
 }
@@ -24,8 +24,8 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   mainColor: '#ffce5c',
-  initialQuantity: 10,
-  maxQuantity: 40,
+  initialQuantity: 20,
+  maxQuantity: 60,
   generateInterval: 1000,
 });
 

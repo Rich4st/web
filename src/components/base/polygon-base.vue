@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { ShapeType, FillType } from '../types';
+import { ShapeType, FillType } from '../../types';
 
 interface IPolygon {
   size?: string;

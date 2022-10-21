@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import BgPolygonFloating from '../components/bg-polygon-floating.vue';
-import BtnBase from '../components/btn-base.vue';
+import BgPolygonFloating from '~/bg-polygon-floating.vue';
+import BtnBase from '~/base/polygon-base.vue';
 
 interface Props {
   label?: string;
@@ -37,9 +37,6 @@ const emit = defineEmits<{
       color="#f0a53c"
     />
   </BgPolygonFloating>
-  <div class="absolute inset-0 flex flex-col flex-center gap-20">
-    <BtnBase />
-  </div>
 </template>
 
 <style scoped lang="scss">
