@@ -1,1 +1,4 @@
-export const foo = 'bar';
+export interface ButtonState {
+  active: boolean,
+  hover: boolean,
+}

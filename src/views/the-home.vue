@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import BgPolygonFloating from '../components/bg-polygon-floating.vue';
+import BtnBase from '../components/btn-base.vue';
 
 interface Props {
   label?: string;
@@ -36,24 +37,11 @@ const emit = defineEmits<{
       color="#f0a53c"
     />
   </BgPolygonFloating>
+  <div class="absolute inset-0 flex flex-col flex-center gap-20">
+    <BtnBase />
+  </div>
 </template>
 
-<style scoped lang="sass">
-.bg-polygon-lt
-  position: absolute
-  left: -25rem
-  top: -25rem
-  animation: polygon-swing 40s infinite ease-in-out
-.bg-polygon-rb
-  position: absolute
-  right: -25rem
-  bottom: -50rem
-  transform: translate(30%, 30%)
-  animation: polygon-swing 28s infinite ease-in-out
-
-@keyframes polygon-swing
-  0%, 100%
-    transform: rotate(0deg)
-  50%
-    transform: rotate(20deg)
+<style scoped lang="scss">
+@import url('../assets/css/the-home.scss')
 </style>
