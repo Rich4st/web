@@ -1,22 +1,8 @@
-<script lang="ts">
-export enum ShapeType {
-  ROUND = 'round',
-  TRIANGLE = 'triangle',
-  SQUARE = 'square',
-  PENTAGON = 'pentagon'
-}
-
-export enum FillType {
-  SOLID = 'solid',
-  FENCE = 'fence',
-  SPOT = 'spot',
-}
-</script>
-
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
+import { ShapeType, FillType } from '../types';
 
-interface Props {
+interface IPolygon {
   size?: string;
   color?: string;
   rotate?: string;
@@ -24,7 +10,8 @@ interface Props {
   shape?: `${ShapeType}`,
   fill?: `${FillType}`
 }
-const props = withDefaults(defineProps<Props>(), {
+
+const props = withDefaults(defineProps<IPolygon>(), {
   size: '10rem',
   color: 'white',
   rotate: '0deg',
