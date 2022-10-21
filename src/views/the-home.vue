@@ -1,9 +1,10 @@
 <template>
-  <div class="flex"> 我是頁面 </div>
+  <BgPolygonFloating class="absolute inset-0" />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import BgPolygonFloating from '../components/bg-polygon-floating.vue';
 
 interface Props {
   label?: string;
