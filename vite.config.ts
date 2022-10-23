@@ -10,6 +10,7 @@ export default defineConfig({
       '@': '/src',
       '~': '/src/components',
       'types': '/src/types',
+      'views': '/src/views',
     },
   },
   plugins: [

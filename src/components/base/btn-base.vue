@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import type { ButtonState } from 'types'
-import { computed } from '@vue/reactivity'
 import { nanoid } from 'nanoid'
 
 interface Props {

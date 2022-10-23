@@ -1,14 +1,24 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useMainStore } from './stores/main.store'
 
-const store = useMainStore()
+import { useLoading } from '@/composables'
+import LoadingOverlay from '~/transition/loading-overlay.vue'
+
+const loading = useLoading()
+
+setTimeout(() => {
+  loading.show()
+  setTimeout(() => {
+    loading.hide()
+  }, 2000)
+}, 2000)
 
 document.title += ` v${import.meta.env.PACKAGE_VERSION}`
 </script>
 
 <template>
   <router-view />
+  <loading-overlay />
 </template>
 
 <style lang="scss">

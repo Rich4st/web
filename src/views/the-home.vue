@@ -1,13 +1,26 @@
 <script setup lang="ts">
+import { RouterName } from 'types'
+import { useRouter } from 'vue-router'
 import BgPolygonFloating from '~/bg-polygon-floating.vue'
 import BtnBase from '~/base/btn-base.vue'
 import PolygonBase from '~/base/polygon-base.vue'
+import { useLoading } from '@/composables'
+
+const loading = useLoading()
+const router = useRouter()
+
+async function startParty() {
+  await loading.show()
+  router.push({
+    name: RouterName.GAME_CONSOLE,
+  })
+}
 </script>
 
 <template>
   <BgPolygonFloating class="absolute inset-0" />
   <div class="absolute inset-0 flex flex-col flex-center gap-20">
-    <BtnBase class="menu-btn" label="建立房间" label-hover-color="#ff9a1f" stroke-color="#856639" stroke-hover-color="white">
+    <BtnBase class="menu-btn" label="建立房间" label-hover-color="#ff9a1f" stroke-color="#856639" stroke-hover-color="white" @click="startParty">
       <template #default="{ state }">
         <div class="btn-content absolute inset-0" :class="{ hover: state.hover }">
           <PolygonBase class="absolute btn-polygon-lt" size="14rem" shape="round" fill="spot" />

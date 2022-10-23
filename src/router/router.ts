@@ -1,32 +1,40 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+import { RouterName } from 'types'
 
 export interface RouteMeta {
-  name: string;
+  name: string
 }
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: {
-      name: 'home',
-    }
+      name: RouterName.HOME,
+    },
   },
 
   {
-    path: `/home`,
-    name: 'home',
-    component: () => import('../views/the-home.vue')
+    path: '/home',
+    name: RouterName.HOME,
+    component: () => import('views/the-home.vue'),
+  },
+
+  {
+    path: '/game-console',
+    name: RouterName.GAME_CONSOLE,
+    component: () => import('views/game-console.vue'),
   },
 
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/'
+    redirect: '/',
   },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 export default router

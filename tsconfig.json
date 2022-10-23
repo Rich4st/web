@@ -15,9 +15,10 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["*"],
       "types/*": ["types/*"],
-      "~/*":["components/*"]
+      "~/*": ["components/*"],
+      "views/": ["views"]
     }
   },
   "include": [
